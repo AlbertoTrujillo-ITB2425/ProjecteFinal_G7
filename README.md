@@ -63,7 +63,7 @@ L'aplicació permet als usuaris donar d'alta els seus dominis i realitzar compro
 Totes les instruccions detallades per a la instal·lació en local, configuració del fitxer d'entorn `.env`, claus de l'API de Groq, tasques de manteniment i arquitectura del servidor es troben completament documentades a la guia oficial del projecte.
 
 > 📘 **Accés al Manual d'Administrador:**  
-> Consulta la [**Guia d'Administració i Desplegament (ADMIN.md)**](./docs/ADMIN.md) per posar en marxa el projecte.
+> Consulta la [**Guia d'Administració i Desplegament (ADMIN.md)**](./docs/Manual_Admin.md) per posar en marxa el projecte.
 
 ---
 
