@@ -1,11 +1,11 @@
-# 🛡️ CyberPyme — Plataforma d'Auditoria de Seguretat per a PIMES
+#  CyberPyme — Plataforma d'Auditoria de Seguretat per a PIMES
 
 > **Projecte Final de Grau Superior — Administració de Sistemes Informàtics en Xarxa (ASIX)**  
 > **Institut Tecnològic de Barcelona (ITB) — Curs Acadèmic 2025/2026**
 
 ---
 
-## 📝 Resum Executiu
+##  Resum Executiu
 
 **CyberPyme** és una aplicació web i infraestructura SaaS dissenyada perquè les Petites i Mitjanes Empreses (PIMES) puguin auditar, monitoritzar i gestionar els seus riscos informàtics sense necessitat de comptar amb un departament tècnic avançat ni suportar els alts costos d'una consultoria externa.
 
@@ -16,26 +16,26 @@ L'aplicació permet als usuaris donar d'alta els seus dominis i realitzar compro
 
 ---
 
-## ✨ Característiques Tècniques Principals
+##  Característiques Tècniques Principals
 
-*   🔍 **Auditoria de Xarxa Externa:** Detecció automàtica de serveis exposats i vulnerabilitats perimetrals.
-*   🔥 **Generació d'Informes per IA:** Integració interna (Groq/Llama 3.3) que tradueix logs complexos de seguretat en plans de mitigació tècnica llegibles.
-*   🛡️ **Protecció Perimetral Activa:** Mitigació d'atacs web comuns (OWASP Top 10, injeccions de codi, XSS) i mitigació de DDoS mitjançant **Cloudflare** i **IPS Snort 3**.
-*   📊 **Monitorització d'Esdeveniments (SIEM):** Centralització i anàlisi de logs mitjançant **Wazuh** i quadres de comandament visuals en **Grafana**.
-*   🔐 **Autenticació Centralitzada:** Gestió d'accessos i control d'usuaris mitjançant el directori corporatiu **OpenLDAP** sota canals xifrats.
+*    **Auditoria de Xarxa Externa:** Detecció automàtica de serveis exposats i vulnerabilitats perimetrals.
+*    **Generació d'Informes per IA:** Integració interna (Groq/Llama 3.3) que tradueix logs complexos de seguretat en plans de mitigació tècnica llegibles.
+*    **Protecció Perimetral Activa:** Mitigació d'atacs web comuns (OWASP Top 10, injeccions de codi, XSS) i mitigació de DDoS mitjançant **Cloudflare** i **IPS Snort 3**.
+*    **Monitorització d'Esdeveniments (SIEM):** Centralització i anàlisi de logs mitjançant **Wazuh** i quadres de comandament visuals en **Grafana**.
+*    **Autenticació Centralitzada:** Gestió d'accessos i control d'usuaris mitjançant el directori corporatiu **OpenLDAP** sota canals xifrats.
 
 ---
 
-## 🔒 Control d'Auditoria i Seguretat Legal
+##  Control d'Auditoria i Seguretat Legal
 
-> ⚠️ **Nota sobre l'ús d'Nmap i Escanejos de Xarxa:**  
+>  **Nota sobre l'ús d'Nmap i Escanejos de Xarxa:**  
 > Llançar escanejos de ports de manera automatitzada o indiscriminada contra qualsevol domini a Internet és una pràctica de risc que activa de forma immediata les alarmes dels sistemes de detecció d'intrusions (IDS/IPS) perimetrals i pot provocar el bloqueig o llistat negre (*blacklisting*) de la IP del nostre servidor per part dels proveïdors de xarxa.
 >
 > Per aquest motiu, **CyberPyme** s'ha dissenyat sota un estricte principi de control: l'aplicació obliga l'usuari a registrar i configurar manualment les propietats del seu propi domini i dels hosts concrets que es volen analitzar. D'aquesta manera es garanteix un entorn auditat controlat, evitant falses alarmes d'atacs a la xarxa i assegurant que l'activitat s'executa exclusivament sobre la infraestructura autoritzada pel client.
 
 ---
 
-## 🛠️ Stack Tecnològic
+## Stack Tecnològic
 
 | Capa | Tecnologies Utilitzades |
 | :--- | :--- |
@@ -47,7 +47,7 @@ L'aplicació permet als usuaris donar d'alta els seus dominis i realitzar compro
 
 ---
 
-## 💡 Per què fem servir aquestes tecnologies? (Justificació Tècnica)
+## Per què fem servir aquestes tecnologies? (Justificació Tècnica)
 
 *   **Docker i Docker Compose:** Permet l'orquestració i el desplegament de toda la infraestructura multi-contenidor en qüestió de minuts, garantint l'aïllament de serveis i la portabilitat total entre entorns de desenvolupament i producció.
 *   **Cloudflare i Snort 3:** S'ha estructurat una defensa en capes sòlida. Cloudflare actua com a primera línia de defensa perimetral al núvol, filtrant el trànsit maliciós (WAF contra OWASP Top 10) i mitigant atacs DDoS abans que arribin al servidor, mentre que Snort 3 inspecciona localment el trànsit de xarxa a nivell de paquet.
@@ -58,16 +58,16 @@ L'aplicació permet als usuaris donar d'alta els seus dominis i realitzar compro
 
 ---
 
-## 🚀 Desplegament i Manual d'Administració
+## Desplegament i Manual d'Administració
 
 Totes les instruccions detallades per a la instal·lació en local, configuració del fitxer d'entorn `.env`, claus de l'API de Groq, tasques de manteniment i arquitectura del servidor es troben completament documentades a la guia oficial del projecte.
 
-> 📘 **Accés al Manual d'Administrador:**  
+> **Accés al Manual d'Administrador:**  
 > Consulta la [**Guia d'Administració i Desplegament (Manual Admin.md)**](./docs/Manual_Admin.md) per posar en marxa el projecte.
 
 ---
 
-## 📁 Estructura del Projecte
+## Estructura del Projecte
 
 ```text
 ProjecteFinal_G7/
@@ -84,7 +84,7 @@ ProjecteFinal_G7/
 
 ---
 
-## 👥 Equip de Treball (Grup 12)
+## Equip de Treball
 
 * **Alberto Trujillo** — [GitHub](https://github.com/AlbertoTrujillo-ITB2425)
 * **Joel Muñoz** — [GitHub](https://github.com/JoelMunoz-ITB2425)
@@ -92,6 +92,6 @@ ProjecteFinal_G7/
 
 ---
 
-## 📄 Llicència
+## Llicència
 
 Aquest projecte està sota la Llicència MIT. Consulta el fitxer [LICENSE](https://github.com/AlbertoTrujillo-ITB2425/ProjecteFinal_G7/blob/main/LICENSE) per a més detalls.
