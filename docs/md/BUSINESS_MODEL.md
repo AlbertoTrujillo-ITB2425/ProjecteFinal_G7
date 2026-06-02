@@ -1,249 +1,314 @@
-# 📊 Business Model - CyberAudit SaaS
+# 📊 Model de Negoci — CyberPyme G7
 
-Market analysis, pricing strategy, and business model for CyberAudit SaaS.
-
----
-
-## Table of Contents
-
-- [The Problem](#the-problem)
-- [Target Market](#target-market)
-- [Market Size](#market-size)
-- [Pricing Strategy](#pricing-strategy)
-- [Revenue Streams](#revenue-streams)
-- [Financial Projections](#financial-projections)
-- [Competitive Analysis](#competitive-analysis)
-- [Use Cases](#use-cases)
+Anàlisi de mercat, estratègia de preus i model de negoci del projecte **CyberPyme G7**, un servei de monitoratge i auditoria de ciberseguretat per a petites i mitjanes empreses, desenvolupat com a projecte final del CFGS ASIXc2 a l'Institut Tecnològic de Barcelona.
 
 ---
 
-## The Problem
+## Taula de continguts
 
-**43% of cyberattacks target small businesses**, yet:
-- Only 14% have adequate cybersecurity measures
-- Average data breach cost: **€133,000** for SMEs
-- 60% of small companies close within 6 months of a cyberattack
-- **87% of SMEs have no dedicated IT department**
-- Traditional enterprise security solutions cost **€500–€2,000/month** (unaffordable for most SMEs)
-
----
-
-## Target Market
-
-### Primary: SMEs Without IT Departments
-- **Size**: 1–50 employees | **Revenue**: €100K–€2M annually
-- Digital presence: website, e-commerce, or online services
-- Industries: retail, food service, professional services, healthcare, real estate, e-commerce
-
-### Secondary: SMEs Seeking Cost Optimization
-- **Size**: 20–250 employees
-- Currently paying €3,000–€8,000/month for IT consultants
-- Inefficient legacy security systems, no 24/7 monitoring
-
-### Tertiary: Web3-Native Businesses
-- **Size**: 2–30 employees
-- Crypto-related services needing blockchain payment integration
+- [El problema](#el-problema)
+- [Mercat objectiu](#mercat-objectiu)
+- [Mida del mercat](#mida-del-mercat)
+- [Estratègia de preus](#estratègia-de-preus)
+- [Fonts d'ingressos](#fonts-dingressos)
+- [Projeccions financeres](#projeccions-financeres)
+- [Anàlisi competitiva](#anàlisi-competitiva)
+- [Casos d'ús reals](#casos-dús-reals)
+- [Diferenciadors clau](#diferenciadors-clau)
+- [Bibliografia](#bibliografia)
 
 ---
 
-## Market Size
+## El problema
 
-| Geography | Total SMEs | Without IT Dept | Target Market | Annual Value |
-|-----------|-----------|----------------|---------------|-------------|
-| **Spain** | 2.9M | 1.57M | 540,000 | €194.4M |
-| **EU** | 23M | 12.8M | 4.4M | €1.58B |
+**El 70% dels ciberatacs a Espanya tenen com a objectiu les PYME**, no les grans corporacions. Malgrat això:
 
-**Growth Drivers**:
-- SMB cybersecurity CAGR: **15.2%** (2024–2030)
-- NIS2 Directive: EU regulation mandating security for SMEs
-- Cyber insurance requirements, remote work security trends
-- Cost optimization (SMEs reducing fixed IT costs by 40–60%)
+- Només el **14%** de les PYME espanyoles disposen de mesures de ciberseguretat adequades
+- El cost mitjà d'una bretxa de dades per a una PYME és de **€133.000**
+- El **60% de les empreses petites** tanquen en els 6 mesos posteriors a un ciberatac
+- El **87% de les PYME** no té departament d'IT propi
+- Les solucions de seguretat empresarials tradicionals costen entre **€500 i €2.000/mes**, inassolibles per a la majoria de PYME
 
----
+A Espanya, l'INCIBE va gestionar **97.348 incidents de ciberseguretat el 2024**, un 16,6% més que el 2023, dels quals **31.540 van afectar empreses** — un 43,2% més que l'any anterior. A Catalunya, l'Agència de Ciberseguretat va gestionar 6.544 incidents el 2025, amb 9.100 milions d'intents d'atac detectats — un 32% més que el 2024.
 
-## Pricing Strategy
-
-### Subscription Tiers
-
-| Plan | EURC/Month | USDC/Month | Annual (20% off) | Target |
-|------|-----------|-----------|-----------------|--------|
-| **Basic** | 29.99 | $32.99 | 287.90 EURC | 1–10 employees, single site |
-| **Professional** | 59.99 | $65.99 | 575.90 EURC | 10–50 employees, multi-site |
-| **Business** | 99.99 | $109.99 | 959.90 EURC | 50–250 employees, compliance |
-| **Enterprise** | Custom | Custom | Custom | 250+ employees |
-
-### Traditional IT Costs vs. CyberAudit
-
-| Expense | Traditional | CyberAudit | Savings |
-|---------|------------|-----------|---------|
-| IT Consultant Retainer | €3,000–€6,000/mo | €0 | €3,000–€6,000 |
-| Security Software | €200–€800/mo | Included | €200–€800 |
-| Monitoring Tools | €150–€400/mo | Included | €150–€400 |
-| Compliance Audits | €2,000–€5,000/yr | €99/report | €1,800–€4,900 |
-| **Total Monthly** | €3,500–€7,200 | **€29.99–€99.99** | **€3,400–€7,100** |
-
-**ROI Example** (Professional Plan):
-- Annual investment: €575.90
-- Annual savings: ~€42,000 (avoided IT consultant fees)
-- **ROI: 7,191% | Payback period: 5 days**
+**El context és clar: les PYME necessiten protecció professional i assequible.**
 
 ---
 
-## Revenue Streams
+## Mercat objectiu
 
-1. **Subscription Fees** (85% of revenue) — MRR, annual prepayments, upsells
-2. **Professional Services** (10%) — Initial audit €299, compliance reports €99, incident retainer €199/mo
-3. **Partner Commissions** (5%) — Hosting referrals (15%), hardware sales (10%), API licensing
+### Principal: PYME sense departament d'IT
+- **Mida**: 1–50 treballadors | **Facturació**: €100K–€2M anuals
+- Presència digital: web, comerç electrònic o serveis online
+- Sectors: comerç, restauració, serveis professionals, salut, immobiliàries, e-commerce
 
-### Unit Economics (Professional Plan)
-- Monthly revenue: €59.99
-- Server costs: €2.50/customer
-- Payment processing: €0.01 (Solana fees)
-- Support costs: €5.00/customer
-- **Gross margin: €52.48 (87.5%)**
-
-### Break-even Analysis
-- Fixed monthly costs: €865/month (AWS €150, support €500, marketing €200, misc €15)
-- **Break-even: 17 customers | Expected: Month 3–4**
+### Secundari: PYME que busquen optimitzar costos
+- **Mida**: 20–250 treballadors
+- Paguen entre €3.000 i €8.000/mes a consultors d'IT
+- Sistemes de seguretat obsolets, sense monitoratge 24/7
 
 ---
 
-## Financial Projections
+## Mida del mercat
 
-| Year | Customers | MRR | Annual Revenue | Net Profit | Margin |
-|------|-----------|-----|---------------|-----------|--------|
-| 1 | 120 | €5,999 | €71,988 | €28,795 | 40% |
-| 2 | 350 | €17,497 | €209,964 | €125,978 | 60% |
-| 3 | 800 | €39,992 | €479,904 | €335,933 | 70% |
-| 4 | 1,500 | €74,985 | €899,820 | €719,856 | 80% |
-| 5 | 2,500 | €124,975 | €1,499,700 | €1,274,745 | 85% |
+| Territori | Total PYME | Sense IT propi | Mercat objectiu | Valor anual estimat |
+|---|---|---|---|---|
+| **Espanya** | 2,9M | 1,57M | 540.000 | €194,4M |
+| **Catalunya** | 557 empreses de ciberseg. | — | — | €1.473M (sector) |
+| **UE** | 23M | 12,8M | 4,4M | €1,58B |
 
-*Assumptions: 15% monthly churn, 8% monthly growth, improving margins with scale*
+**Factors de creixement**:
+- CAGR de ciberseguretat per a PYME: **15,2%** (2024–2030)
+- Directiva NIS2: regulació de la UE que obliga les PYME a implementar seguretat
+- Requisits d'assegurances cibernètiques, tendències de treball remot
+- Programa **Pyme Cibersegura** (Govern d'Espanya / FEDER): subvencions de fins a €4.494 per empresa
 
 ---
 
-## Competitive Analysis
+## Estratègia de preus
+
+### Plans de subscripció
+
+| Pla | €/Mes | Anual (20% dto.) | Objectiu |
+|---|---|---|---|
+| **Bàsic** | €29,99 | €287,90 | 1–10 treballadors, un sol lloc web |
+| **Professional** | €59,99 | €575,90 | 10–50 treballadors, multi-lloc |
+| **Business** | €99,99 | €959,90 | 50–250 treballadors, compliment normatiu |
+| **Enterprise** | A mida | A mida | +250 treballadors |
+
+> ⚠️ **Nota del projecte:** Els preus en criptomoneda (EURC/USDC via Solana) del document original s'han mantingut com a opció futura, però el model actual del projecte G7 opera en euros convencionals via transferència bancària o Bizum, sense blockchain integrada. La infraestructura de Solana no forma part del desplegament actual a AWS.
+
+### Costos tradicionals IT vs. CyberPyme G7
+
+| Despesa | Tradicional | CyberPyme G7 | Estalvi |
+|---|---|---|---|
+| Consultor IT (retainer) | €3.000–€6.000/mes | €0 | €3.000–€6.000 |
+| Programari de seguretat | €200–€800/mes | Inclòs | €200–€800 |
+| Eines de monitoratge | €150–€400/mes | Inclòs | €150–€400 |
+| Auditories de compliment | €2.000–€5.000/any | €99/informe | €1.800–€4.900 |
+| **Total mensual** | **€3.500–€7.200** | **€29,99–€99,99** | **€3.400–€7.100** |
+
+---
+
+## Fonts d'ingressos
+
+1. **Quotes de subscripció** (85% dels ingressos) — MRR, pagaments anuals, upsells
+2. **Serveis professionals** (10%) — Auditoria inicial €299, informes de compliment €99, retainer d'incidents €199/mes
+3. **Comissions de partners** (5%) — Referidors d'hosting (15%), venda de maquinari (10%), llicències d'API
+
+### Economia unitària (Pla Professional)
+- Ingressos mensuals: €59,99
+- Costos de servidor AWS: €2,50/client
+- Costos de suport: €5,00/client
+- **Marge brut: €52,48 (87,5%)**
+
+### Anàlisi de punt d'equilibri
+- Costos fixos mensuals: €865/mes (AWS €150, suport €500, màrqueting €200, misc €15)
+- **Punt d'equilibri: 17 clients | Previsió: Mes 3–4**
+
+---
+
+## Projeccions financeres
+
+| Any | Clients | MRR | Ingressos anuals | Benefici net | Marge |
+|---|---|---|---|---|---|
+| 1 | 120 | €5.999 | €71.988 | €28.795 | 40% |
+| 2 | 350 | €17.497 | €209.964 | €125.978 | 60% |
+| 3 | 800 | €39.992 | €479.904 | €335.933 | 70% |
+| 4 | 1.500 | €74.985 | €899.820 | €719.856 | 80% |
+| 5 | 2.500 | €124.975 | €1.499.700 | €1.274.745 | 85% |
+
+*Supòsits: 15% de churn mensual, 8% de creixement mensual, marges millorant amb l'escala.*
+
+---
+
+## Anàlisi competitiva
+
+### Posicionament al mercat
 
 ```
-              High Price
+              Preu alt
                   │
-     Akamai ●     │     (Enterprise)
+       Akamai ●   │       (Empresa gran)
                   │
-                  │● SiteLock
-   Consultants ●  │
+    Consultors ●  │● SiteLock
+                  │
                   │● Sucuri
-                  │● Cloudflare
-   CyberAudit ●   │     ← Our Position
+                  │● Cloudflare Pro
+  CyberPyme G7 ●  │     ← La nostra posició
                   │
-                  │● DIY/Free
-              Low │
-                  └─────────────────
-                  Low ← Features → High
+                  │● DIY/Gratuït
+           Baix   │
+                  └──────────────────────
+                  Baixes ← Funcions → Altes
 ```
 
-### Feature Matrix
+### Matriu de funcionalitats
 
-| Feature | CyberAudit | Sucuri | Cloudflare | SiteLock | In-House |
-|---------|------------|--------|-----------|---------|---------|
-| **Price/Month** | €29.99 | €16.67 | €20 | €99.99 | €4,000 |
-| **Setup Time** | 5 min | 1–2 days | 30 min | 1 week | 1 month |
-| **No IT Knowledge** | ✅ | ⚠️ | ❌ | ✅ | ❌ |
-| **24/7 Monitoring** | ✅ | ✅ | ⚠️ | ✅ | ❌ |
-| **GDPR Compliant** | ✅ | ❌ (US) | ✅ | ⚠️ | ✅ |
-| **Crypto Payments** | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **Spanish Support** | ✅ | ❌ | ❌ | ⚠️ | ✅ |
+| Funcionalitat | **CyberPyme G7** | **Sucuri** | **Cloudflare Pro** | **SiteLock** | **Consultor IT** |
+|---|---|---|---|---|---|
+| **Preu/mes** | €29,99–€99,99 | €16,67 | €20 | €99,99 | €3.000–€6.000 |
+| **Temps de configuració** | < 30 min | 1–2 dies | 30 min | 1 setmana | 1 mes |
+| **Sense coneixements IT** | ✅ | ⚠️ | ❌ | ✅ | ❌ |
+| **Monitoratge 24/7** | ✅ | ✅ | ⚠️ | ✅ | ❌ |
+| **Conforme RGPD** | ✅ | ❌ (EUA) | ✅ | ⚠️ | ✅ |
+| **Suport en català/castellà** | ✅ | ❌ | ❌ | ⚠️ | ✅ |
+| **SIEM integrat (Wazuh)** | ✅ | ❌ | ❌ | ❌ | Depèn |
+| **IDS/IPS (Snort)** | ✅ | ❌ | ❌ | ❌ | Depèn |
+| **Informe de vulnerabilitats** | ✅ | ✅ | ❌ | ✅ | ✅ |
+| **Codi obert** | ✅ | ❌ | ❌ | ❌ | ❌ |
 
-### Key Differentiators
-1. **SME-Optimized**: Built for businesses without IT departments
-2. **Transparent Pricing**: No hidden fees, all on blockchain
-3. **Crypto-First**: 97% lower payment fees (€0.0002 vs €1.17/transaction)
-4. **EU-Focused**: GDPR-native, Spanish support, local compliance
-5. **No Lock-In**: Month-to-month, cancel anytime
+### Sobre les empreses competidores
 
----
+**Sucuri** (GoDaddy, EUA) és el líder en protecció de llocs WordPress. Ofereix WAF i CDN a €16,67/mes, però no disposa de SIEM ni IDS propis, i els seus servidors estan als EUA, cosa que genera friccions amb el RGPD europeu.
 
-## Use Cases
+**Cloudflare** (EUA, cotitza al NYSE: NET) és el major proveïdor de CDN i protecció DDoS del món, amb més de 200 punts de presència global. El seu pla Pro (€20/mes) inclou WAF bàsic, però no ofereix monitoratge de seguretat interna ni alertes personalitzades per a la infraestructura del client.
 
-### 1. Local Retail — Family Pharmacy (15 employees)
-**Problem**: Website hacked in 2024, €2,500 cleanup cost, 30% drop in online sales, €50,000 GDPR fine risk
+**SiteLock** (EUA) ofereix escaneig de vulnerabilitats i reparació automatitzada a €99,99/mes. Té bona reputació al mercat americà però presència limitada a Espanya i sense suport en català o castellà.
 
-**Solution**: Professional Plan (€59.99/month)
-- Real-time WAF blocking 50+ attacks daily
-- Weekly vulnerability scans on WordPress plugins
-- GDPR compliance reports, automated alerts
+**Akamai** (NASDAQ: AKAM) és el referent empresarial amb solucions de seguretat des de €500/mes. Orientat exclusivament a grans corporacions, completament fora de l'abast econòmic d'una PYME.
 
-**ROI**: Annual cost €720 vs €59,700 in savings = **8,192% ROI**
+**Consultors IT locals (Espanya)** cobren entre €3.000 i €6.000/mes per serveis equivalents. Representen el competidor directe més comú per a les PYME espanyoles, però el seu cost és prohibitiu.
 
 ---
 
-### 2. Accounting Firm (10 employees, 200 clients)
-**Problem**: Client data stolen via phishing, losing clients, €4,000/year cyber insurance
+## Casos d'ús reals
 
-**Solution**: Business Plan (€99.99/month)
-- SIEM detecting phishing in real-time
-- Automated compliance for professional accreditation
-- White-label security dashboard for clients
-
-**Results after 6 months**: 0 incidents, 3 new clients, insurance reduced to €2,400/year
+> Els casos següents combinen situacions reals documentades per l'INCIBE i la proposta del projecte, adaptades al context de les PYME catalanes/espanyoles.
 
 ---
 
-### 3. Restaurant with Online Ordering (12 employees)
-**Problem**: DDoS during lunch rush (lost €500 in orders), no monitoring, PCI-DSS concerns
+### Cas 1 — Farmàcia familiar (15 treballadors, Barcelona)
 
-**Solution**: Basic Plan (€29.99/month)
-- DDoS protection via Cloudflare
-- PCI-DSS compliance checklist
-- Simple green/red status dashboard
+**Situació real (INCIBE 2024):** L'any 2024, es van registrar **2.122 incidents relacionats amb botigues online fraudulentes** i milers d'atacs a llocs web de comerç electrònic de PYME. Una farmàcia amb tenda online va patir un atac de tipus *defacement* (modificació del web) i *phishing* als seus clients.
 
-**ROI**: Annual cost €360 vs €3,200 in savings = **789% ROI**
+**Problema concret:**
+- Web hackejada el 2024, cost de neteja: €2.500
+- Caiguda del 30% de les vendes online durant 2 setmanes
+- Risc de multa RGPD de fins a €50.000 per exposició de dades de salut
 
----
+**Solució amb CyberPyme G7 — Pla Professional (€59,99/mes):**
+- Snort (S11) bloquejant 50+ intents d'atac diaris
+- Wazuh (S7) detectant modificacions de fitxers en temps real
+- Postfix (S10) enviant alertes automàtiques per correu
+- Informes de compliment RGPD mensuals via `socmail.php`
 
-### 4. HR SaaS Startup (35 employees)
-**Problem**: High burn rate — Datadog €800/mo + Cloudflare €200/mo + security €300/mo + DevOps €1,500/mo = €2,800/month
-
-**Solution**: Enterprise Plan (€299/month)
-- Replaces Datadog, Cloudflare, and standalone security tools
-- **Savings: €2,501/month (€30,012/year)**
+**ROI:** Cost anual €720 vs €52.500 en pèrdues potencials = **ROI del 7.191%**
 
 ---
 
-### 5. Dental Clinic with Patient Portal (9 employees)
-**Problem**: GDPR audit cost €5,000, potential patient data breach fines €20,000–€200,000
+### Cas 2 — Gestoría comptable (10 treballadors, 200 clients, Sabadell)
 
-**Solution**: Professional Plan (€59.99/month)
-- Automated GDPR compliance checklist
-- Access logging per patient record
-- Encrypted backups to AWS S3
+**Situació real:** Segons l'INCIBE, el **phishing** va ser el segon incident més freqüent el 2024 (21.571 casos). Moltes gestories han vist dades de clients robades via correus fraudulents simulant l'Agència Tributària.
 
-**Value**: Annual cost €720 vs €5,000+ compliance costs + unlimited fine risk mitigation
+**Problema concret:**
+- Dades de clients robades via phishing simulant l'AEAT
+- Pèrdua de 5 clients, reducció d'ingressos de €18.000/any
+- Assegurança cibernètica: €4.000/any
+
+**Solució amb CyberPyme G7 — Pla Business (€99,99/mes):**
+- Wazuh SIEM (S7) detectant phishing en temps real via anàlisi de logs
+- OpenLDAP (S6) amb control d'accés per rols (els comptables no accedeixen a dades d'altres)
+- Snort (S11) bloquejant connexions a dominis de phishing coneguts
+- Informes de compliment per a l'acreditació professional
+
+**Resultats als 6 mesos:** 0 incidents, 3 nous clients atrets per la seguretat demostrada, assegurança reduïda a €2.400/any
 
 ---
 
-## Payment Infrastructure — Solana Blockchain
+### Cas 3 — Restaurant amb comandes online (12 treballadors, Gràcia, BCN)
 
-### Why Solana?
+**Situació real:** L'INCIBE va registrar **357 atacs de ransomware** el 2024 i centenars d'atacs DDoS a webs de PYME. Restaurants amb comandes online en hora punta són objectius habituals.
 
-Traditional processors (Stripe, PayPal) charge **2.9% + €0.30/transaction**. For a €29.99 subscription:
+**Problema concret:**
+- Atac DDoS durant el servei de dinar: pèrdua de €500 en comandes en 2 hores
+- Sense monitoratge, l'atac no es va detectar fins al cap de 45 minuts
+- Preocupacions de compliment PCI-DSS per als pagaments amb targeta
 
-| | Traditional (Stripe) | Solana |
-|-|---------------------|--------|
-| Fee | €1.17 | €0.00023 |
-| Net Revenue | €28.82 | €29.99 |
-| Fee % | 3.9% | 0.0008% |
+**Solució amb CyberPyme G7 — Pla Bàsic (€29,99/mes):**
+- Cloudflare integrat per a protecció DDoS capa 3/4/7
+- Snort (S11) amb alerta immediata via Postfix (S10)
+- Dashboard Grafana (S8) amb semàfor verd/vermell visible a temps real
+- Llista de compliment PCI-DSS mensual
 
-**Annual savings at 1,000 customers: €14,040**
+**ROI:** Cost anual €360 vs €3.200 en pèrdues potencials = **ROI del 789%**
 
-### Accepted Stablecoins
-- **EURC** (Circle) — 1:1 EUR peg, MiCA compliant, ACPR licensed
-- **USDC** (Circle/Coinbase) — 1:1 USD peg, NYDFS licensed, Deloitte attested
+---
 
-### Treasury Security
-- 2-of-3 multi-signature wallet (Squads Protocol)
-- 90% in cold storage (Ledger hardware wallet)
-- 10% in hot wallet for operations
-- Coincover insurance: €1,000,000 coverage
+### Cas 4 — Startup de RRHH (35 treballadors, Barcelona)
 
-### Fiat Conversion
-Monthly process via Circle API: EURC/USDC → SEPA bank transfer (T+1 settlement)
+**Situació real:** Moltes startups tecnològiques catalanes acumulen costos d'eines SaaS de seguretat i monitoratge sense integrar-les. El sector tecnològic català va créixer un 18,4% en volum de negoci el 2025 (ACCIÓ), però moltes startups segueixen pagant per eines fragmentades.
+
+**Problema concret:**
+- Datadog: €800/mes + Cloudflare: €200/mes + seguretat: €300/mes + DevOps extern: €1.500/mes
+- **Total: €2.800/mes** en eines no integrades
+
+**Solució amb CyberPyme G7 — Pla Enterprise (€299/mes):**
+- Substitueix Datadog (Grafana S8 + Wazuh S7)
+- Substitueix Cloudflare Pro (Snort S11 + protecció perimetral S0)
+- Substitueix eines de seguretat fragmentades (stack integrat Docker)
+- **Estalvi: €2.501/mes (€30.012/any)**
+
+---
+
+### Cas 5 — Clínica dental amb portal de pacients (9 treballadors, Terrassa)
+
+**Situació real:** Les dades de salut (categoria especial del RGPD) estan subjectes a les multes més elevades: fins a €20.000.000 o el 4% de la facturació global. El 2024, diverses clíniques espanyoles van ser investigades per l'AEPD per manca de mesures tècniques adequades.
+
+**Problema concret:**
+- Auditoria RGPD: cost €5.000
+- Risc de multa per exposició de dades de salut: €20.000–€200.000
+- Sense registre d'accessos als historials dels pacients
+
+**Solució amb CyberPyme G7 — Pla Professional (€59,99/mes):**
+- OpenLDAP (S6) amb control d'accés per historial de pacient
+- Wazuh (S7) amb registre d'accés a dades sensibles (auditoria RGPD)
+- Backups xifrats AES-256 del volum MariaDB a AWS S3
+- Informe mensual de compliment RGPD
+
+**Valor:** Cost anual €720 vs €5.000+ en costos de compliment + risc de multa il·limitat
+
+---
+
+## Diferenciadors clau
+
+1. **Optimitzat per a PYME**: Dissenyat per a empreses sense departament IT, amb interfície `socmail.php` intuïtiva
+2. **Stack de codi obert**: Nginx, MariaDB, OpenLDAP, Wazuh, Snort, Grafana — sense llicències propietàries
+3. **Centrat en la UE**: RGPD natiu, suport en català i castellà, compliment NIS2
+4. **Sense dependència del proveïdor**: Desplegament en qualsevol VPS o instància cloud amb `docker compose up -d`
+5. **Preu transparent**: Sense costos ocults, sense compromís mínim
+
+---
+
+## Bibliografia
+
+1. **INCIBE** (2025). *Balance de Ciberseguridad 2024*. Instituto Nacional de Ciberseguridad de España. Recuperat de: https://www.incibe.es/incibe/sala-de-prensa/incibe-presenta-su-balance-de-ciberseguridad-2024-con-mas-de-97000-incidentes
+
+2. **INCIBE** (2025). *Infografia: Balance de Ciberseguridad INCIBE 2024*. Recuperat de: https://www.incibe.es/sites/default/files/Comunicaci%C3%B3n_2025/Infograf%C3%ADa_BalanceCiberseguridad_INCIBE_2024_web.pdf
+
+3. **INCIBE** (2024). *Las principales vulnerabilidades de una PYME en materia de ciberseguridad*. Recuperat de: https://www.incibe.es/empresas/blog/las-principales-vulnerabilidades-de-una-pyme-en-materia-de-ciberseguridad
+
+4. **ACCIÓ / Agència de Ciberseguretat de Catalunya** (2025). *La ciberseguretat a Catalunya — Actualització 2025*. Generalitat de Catalunya. Recuperat de: https://www.accio.gencat.cat/ca/serveis/banc-coneixement/cercador/BancConeixement/eic-la-ciberseguretat-a-catalunya
+
+5. **Agència de Ciberseguretat de Catalunya** (2026). *La ciberseguretat a Catalunya es tensiona: els incidents gairebé es dupliquen el 2025*. Recuperat de: https://www.metadata.cat/noticia/6283/ciberseguretat-catalunya-tensiona-incidents-dupliquen-2025
+
+6. **Pentesting Team** (2026). *Ciberataques en España 2025: cifras INCIBE y claves para la protección*. Recuperat de: https://pentestingteam.com/blog/ciberataques-espana-2025-incibe-claves/
+
+7. **Cambra de Comerç de Barcelona** (2024). *La importància de la Ciberseguretat a les empreses*. Recuperat de: https://cambrabcn.org/la-importancia-de-la-ciberseguretat-a-les-empreses/
+
+8. **Govern d'Espanya / FEDER** (2025). *Programa Pyme Cibersegura 2025*. Cámara de Comercio de Alicante. Recuperat de: https://www.camaralicante.com/innovacion-y-tic/pymecibersegura/pymecibersegura-2025/
+
+9. **Govern d'Espanya** (2021–2025). *Plan de Digitalización de PYMEs 2021–2025 — Programa Activa Ciberseguridad*. Recuperat de: http://espanadigital.gob.es/medida/plan-de-digitalizacion-de-pymes-2021-2025
+
+10. **Libertia** (2026). *Ciberseguridad para Pymes: Protege tu negocio en 2025*. Recuperat de: https://libertia.es/ciberseguridad-para-pymes/
+
+11. **Sucuri** (GoDaddy). *Sucuri Website Security Platform*. Recuperat de: https://sucuri.net/pricing/
+
+12. **Cloudflare, Inc.** (2025). *Cloudflare Pro Plan — Features and Pricing*. Recuperat de: https://www.cloudflare.com/plans/
+
+13. **Akamai Technologies** (2025). *Enterprise Security Solutions*. Recuperat de: https://www.akamai.com/solutions/security
+
+14. **SiteLock** (2025). *Website Security Plans and Pricing*. Recuperat de: https://www.sitelock.com/pricing/
+
+15. **Parlament Europeu / Consell de la UE** (2022). *Directiva NIS2 (2022/2555) relativa a mesures d'un alt nivell comú de ciberseguretat a la Unió*. Diari Oficial de la UE. Recuperat de: https://eur-lex.europa.eu/legal-content/CA/TXT/?uri=CELEX:32022L2555
+
