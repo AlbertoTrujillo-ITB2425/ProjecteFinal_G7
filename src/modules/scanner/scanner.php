@@ -5,10 +5,12 @@ if (!isset($_SESSION['user_id'])) {
     exit; 
 }
 $auditor_name = $_SESSION['user_name'] ?? "Auditor_Desconocido";
+
+// Generar la firma TXT esperada basándonos en la sesión del usuario para mostrarla en la UI
+$expected_token = "auditchain-verify=" . substr(md5($_SESSION['user_id'] . "salt-seguro"), 0, 16);
 ?>
 <?php include '../../includes/header.php'; ?>
 
-<!-- Librerías Externas -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -47,7 +49,6 @@ $auditor_name = $_SESSION['user_name'] ?? "Auditor_Desconocido";
 
 <main class="max-w-7xl mx-auto px-4 py-8">
     
-    <!-- HEADER -->
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
         <div>
             <h1 class="text-3xl font-black italic text-white tracking-tighter flex items-center gap-3">
@@ -59,7 +60,6 @@ $auditor_name = $_SESSION['user_name'] ?? "Auditor_Desconocido";
             </p>
         </div>
         
-        <!-- Stats Panel -->
         <div class="glass-panel px-6 py-3 rounded-lg flex gap-6 text-xs font-bold uppercase tracking-wide opacity-50 transition-opacity duration-300" id="stats-panel">
             <div class="flex flex-col items-center">
                 <span class="text-slate-400 text-[10px]">Objetivo</span>
@@ -80,7 +80,6 @@ $auditor_name = $_SESSION['user_name'] ?? "Auditor_Desconocido";
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
         
-        <!-- COLUMNA IZQUIERDA -->
         <div class="lg:col-span-4 space-y-6">
             
             <section class="glass-panel p-6 rounded-xl border-l-4 border-blue-500">
@@ -90,12 +89,20 @@ $auditor_name = $_SESSION['user_name'] ?? "Auditor_Desconocido";
                     <i class="fas fa-globe absolute left-3 top-3.5 text-slate-500"></i>
                 </div>
 
-                <div class="mb-6">
+                <div class="mb-4">
                     <label class="text-[10px] font-bold text-slate-400 uppercase mb-2 block">Modo</label>
                     <select id="type" class="w-full bg-slate-900/80 border border-slate-700 rounded-lg p-3 text-sm text-slate-300 outline-none focus:border-blue-500 terminal-font">
                         <option value="quick">⚡ Quick (Puertos Comunes)</option>
                         <option value="full">🛡️ Full (Detección Versiones)</option>
                     </select>
+                </div>
+
+                <div class="mb-6 p-3 bg-slate-900/60 rounded-lg border border-slate-700/50 text-xs">
+                    <span class="text-slate-400 font-bold block mb-1 uppercase tracking-wider text-[10px]"><i class="fas fa-key text-blue-400 mr-1"></i> Firma de Validación</span>
+                    <p class="text-[11px] text-slate-400 mb-2 leading-relaxed">Para auditar un dominio, añade este registro <strong>TXT</strong> en su configuración DNS externa:</p>
+                    <div class="flex items-center gap-2 bg-black/40 p-2 rounded border border-blue-500/20 font-mono text-blue-400 select-all tracking-tight break-all">
+                        <?= htmlspecialchars($expected_token) ?>
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-4 gap-2">
@@ -108,7 +115,6 @@ $auditor_name = $_SESSION['user_name'] ?? "Auditor_Desconocido";
                 </div>
             </section>
 
-            <!-- Panel de Recomendaciones (Se llena con IA o Lógica Local) -->
             <section id="recommendations-panel" class="glass-panel p-6 rounded-xl hidden">
                 <h3 class="text-xs font-bold text-yellow-400 uppercase mb-4 border-b border-slate-700 pb-2">
                     <i class="fas fa-exclamation-triangle mr-2"></i>Acciones Recomendadas
@@ -117,10 +123,8 @@ $auditor_name = $_SESSION['user_name'] ?? "Auditor_Desconocido";
             </section>
         </div>
 
-        <!-- COLUMNA DERECHA -->
         <div class="lg:col-span-8 space-y-6">
             
-            <!-- Tarjeta de Estado -->
             <div id="risk-status-card" class="glass-panel p-6 rounded-xl border-l-4 border-slate-600 hidden transition-all duration-500">
                 <div class="flex justify-between items-center">
                     <div>
@@ -138,7 +142,6 @@ $auditor_name = $_SESSION['user_name'] ?? "Auditor_Desconocido";
                 </div>
             </div>
 
-            <!-- Panel de Análisis IA -->
             <div id="ai-panel" class="hidden glass-panel p-6 rounded-xl border border-purple-500/30 bg-purple-900/10 relative overflow-hidden">
                 <div class="absolute top-0 right-0 p-4 opacity-10"><i class="fas fa-brain text-8xl text-purple-500"></i></div>
                 <div class="flex items-center gap-2 mb-3">
@@ -148,7 +151,6 @@ $auditor_name = $_SESSION['user_name'] ?? "Auditor_Desconocido";
                 <div id="ai-content" class="text-sm text-slate-300 terminal-font leading-relaxed whitespace-pre-wrap max-h-[300px] overflow-y-auto pr-2 border-l-2 border-purple-500/30 pl-4"></div>
             </div>
 
-            <!-- Consola -->
             <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-[400px] relative">
                 <div id="scan-progress-container" class="hidden absolute top-0 left-0 w-full h-1 bg-slate-800 z-20">
                     <div class="h-full bg-blue-500 w-full scan-line"></div>
@@ -181,7 +183,7 @@ $auditor_name = $_SESSION['user_name'] ?? "Auditor_Desconocido";
     let lastScanData = null;
     let startTime = 0;
     let timerInterval;
-    let currentAIResponse = ""; // Para guardar la respuesta de la IA
+    let currentAIResponse = ""; 
 
     const consoleOut = document.getElementById('console-output');
     const btnRun = document.getElementById('btn-run');
@@ -230,7 +232,7 @@ $auditor_name = $_SESSION['user_name'] ?? "Auditor_Desconocido";
         btnRun.disabled = true;
         btnRun.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> ESCANEANDO...';
         document.getElementById('scan-progress-container').classList.remove('hidden');
-        document.getElementById('system-status').innerText = "ESCANEANDO RED...";
+        document.getElementById('system-status').innerText = "VERIFICANDO Y ESCANEANDO...";
         document.getElementById('system-status').className = "text-blue-400 animate-pulse";
         statsPanel.classList.remove('opacity-50');
         document.getElementById('stat-target').innerText = target;
@@ -244,10 +246,17 @@ $auditor_name = $_SESSION['user_name'] ?? "Auditor_Desconocido";
         }, 1000);
 
         try {
-            log(`>>> INICIANDO ESCANEO A: ${target}`, 'header');
+            log(`>>> INICIANDO COMPROBACIÓN Y ESCANEO A: ${target}`, 'header');
             
-            // 1. Fetch al Backend de Escaneo
-            const response = await fetch(`../../api/scan_async.php?target=${target}&type=${type}`);
+            // 1. Fetch al Backend mediante POST JSON (Clean & SMB friendly)
+            const response = await fetch(`../../api/scan_async.php`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ target: target, type: type })
+            });
+            
             if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
             
             const data = await response.json();
@@ -266,7 +275,10 @@ $auditor_name = $_SESSION['user_name'] ?? "Auditor_Desconocido";
                 document.getElementById('btn-pdf').disabled = false;
                 confetti({ particleCount: 50, spread: 60 });
             } else {
-                log(`ERROR DEL SERVIDOR: ${data.message}`, 'error');
+                // Captura el fallo de validación DNS o de IP pública directo desde el backend
+                log(`ERROR: ${data.message}`, 'error');
+                document.getElementById('system-status').innerText = "ESCANEO DENEGADO";
+                document.getElementById('system-status').className = "text-red-400";
             }
 
         } catch (error) {
@@ -282,7 +294,6 @@ $auditor_name = $_SESSION['user_name'] ?? "Auditor_Desconocido";
         }
     }
 
-    // Función para llamar a la API de IA
     async function fetchAIAnalysis(logs, target) {
         try {
             const aiResponse = await fetch("../../api/ai_analysis.php", {
@@ -300,9 +311,6 @@ $auditor_name = $_SESSION['user_name'] ?? "Auditor_Desconocido";
                 
                 aiPanel.classList.remove('hidden');
                 aiContent.innerText = currentAIResponse;
-                
-                // Opcional: Intentar extraer recomendaciones si la IA las formatea bien
-                // Por ahora, mostramos todo el análisis en el panel morado
             } else {
                 log("La IA no pudo generar un análisis.", 'warn');
             }
@@ -332,7 +340,6 @@ $auditor_name = $_SESSION['user_name'] ?? "Auditor_Desconocido";
         statRisk.innerText = data.risk_level || '--';
         statRisk.style.color = data.risk_color || '#94a3b8';
 
-        // Recomendaciones Locales (Basadas en lógica simple del backend)
         const recPanel = document.getElementById('recommendations-panel');
         const recList = document.getElementById('recommendations-list');
         recList.innerHTML = '';
@@ -367,7 +374,7 @@ $auditor_name = $_SESSION['user_name'] ?? "Auditor_Desconocido";
 
         createInput('target', lastScanData.target);
         createInput('logs', lastScanData.technical_logs);
-        createInput('ai_analysis', currentAIResponse); // Enviamos la respuesta de la IA al PDF
+        createInput('ai_analysis', currentAIResponse); 
         createInput('auditor', "<?= htmlspecialchars($auditor_name) ?>");
         
         document.body.appendChild(form);
