@@ -1,6 +1,5 @@
 # Manual d'Administració Complet: CyberPyme Enterprise SOC
  
-**Versió:** 7.7.0 | **Infraestructura:** AWS EC2 t3.large | **IP Producció:** `3.215.30.52`
  
 ---
  
