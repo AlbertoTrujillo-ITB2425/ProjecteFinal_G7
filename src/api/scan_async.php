@@ -1,6 +1,7 @@
 <?php
 // src/api/scan_async.php - Versión Business/SMB Friendly
 
+session_start(); // Mantener sesión para validar al usuario
 if (ob_get_level()) ob_clean();
 set_time_limit(120);
 ignore_user_abort(true);
@@ -36,6 +37,25 @@ $isDomain = preg_match('/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $target);
 if (!$isIP && !$isDomain) {
     echo json_encode(["status" => "error", "message" => "Objetivo inválido: $target"]);
     exit;
+}
+
+// =========================
+// MÓDULO DE VERIFICACIÓN DNS (SEGURIDAD AÑADIDA)
+// =========================
+if ($isDomain && isset($_SESSION['user_id'])) {
+    $expected_token = "auditchain-verify=" . substr(md5($_SESSION['user_id'] . "salt-seguro"), 0, 16);
+    $records = dns_get_record($target, DNS_TXT);
+    $verified = false;
+    foreach ($records as $record) {
+        if (isset($record['txt']) && trim($record['txt'], '"\' ') === $expected_token) {
+            $verified = true;
+            break;
+        }
+    }
+    if (!$verified) {
+        echo json_encode(["status" => "error", "message" => "Validación fallida: Registro TXT no encontrado para $target"]);
+        exit;
+    }
 }
 
 // Variables de análisis
@@ -98,13 +118,13 @@ if ($rawNmap && strpos($rawNmap, 'failed') === false) {
     $lines = explode("\n", $rawNmap);
     
     foreach ($lines as $line) {
-        // Filtrar ruido técnico (Fingerprints SF-, metadatos)
+        // Filtrar ruido técnico
         if (strpos($line, 'SF-') !== false) continue;
         if (strpos($line, 'Service detection performed') !== false) continue;
         if (strpos($line, 'Nmap scan report') !== false) continue;
         if (strpos($line, 'Host is up') !== false) continue;
         
-        // Extraer puertos limpios
+        // Extraer puertos
         if (preg_match('/(\d+)\/(tcp|udp)\s+open\s+(\S+)/', $line, $matches)) {
             $portNum = $matches[1];
             $proto = $matches[2];
@@ -112,7 +132,7 @@ if ($rawNmap && strpos($rawNmap, 'failed') === false) {
             
             $detectedPorts[] = ['port' => "$portNum/$proto", 'service' => $service];
             
-            // Lógica de Riesgo SMB
+            // Lógica de Riesgo
             if (in_array(strtolower($service), ['telnet', 'ftp', 'rsh'])) {
                 $riskScore += 40;
                 $recommendations[] = "⚠️ El puerto $portNum usa protocolo inseguro ($service). Desactivar inmediatamente.";
@@ -126,17 +146,17 @@ if ($rawNmap && strpos($rawNmap, 'failed') === false) {
 
 // Determinar Estado Visual
 $statusLabel = "SECURE";
-$statusColor = "#10b981"; // Verde
+$statusColor = "#10b981";
 $statusIcon = "fa-shield-check";
 
 if ($riskScore > 20) {
     $statusLabel = "REVIEW NEEDED";
-    $statusColor = "#f59e0b"; // Amarillo
+    $statusColor = "#f59e0b";
     $statusIcon = "fa-triangle-exclamation";
 }
 if ($riskScore > 60) {
     $statusLabel = "VULNERABLE";
-    $statusColor = "#ef4444"; // Rojo
+    $statusColor = "#ef4444";
     $statusIcon = "fa-radiation";
 }
 
@@ -159,7 +179,7 @@ echo json_encode([
     "dns_ip" => $dnsInfo,
     "domain_info" => $whoisInfo,
     "shodan_info" => $shodanInfo,
-    "technical_logs" => $technicalLogs // Para el PDF
+    "technical_logs" => $technicalLogs
 ]);
 exit;
-?>p
+?>
