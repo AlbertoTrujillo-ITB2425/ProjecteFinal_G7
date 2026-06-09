@@ -71,9 +71,9 @@ Amb les decisions preses, es va dissenyar i documentar l'arquitectura del sistem
  
 | Tasca | Responsable | Completada |
 |-------|-------------|-----------|
-| Dibuixar esquema de xarxa | Trujillo Mingorance Alberto | 04/05/2026 |
+| Dibuixar esquema de xarxa | Ukleba Luka | 04/05/2026 |
 | Dissenyar base de dades (MariaDB) | Trujillo Mingorance Alberto | 04/05/2026 |
-| Desplegar imatge MariaDB en Docker | Trujillo Mingorance Alberto | 04/05/2026 |
+| Desplegar imatge MariaDB en Docker | Ukleba Luka | 04/05/2026 |
 | Crear màquina Kali Linux | Muñoz Llerin Joel | 14/04/2026 |
  
 **Què es va fer:**
@@ -88,14 +88,14 @@ El nucli tècnic de l'Sprint 1 va ser definir i aixecar tots els serveis com a c
  
 | Tasca | Responsable | Completada |
 |-------|-------------|-----------|
-| Crear plantilla base del projecte | Trujillo Mingorance Alberto | 20/04/2026 |
+| Crear plantilla base del projecte | Ukleba Luka | 20/04/2026 |
 | S1: Gateway & Load Balancer (Nginx) | Ukleba Luka | 20/04/2026 |
-| S2 & S3: Web Nodes (PHP-FPM) | Trujillo Mingorance Alberto | 20/04/2026 |
+| S2 & S3: Web Nodes (PHP-FPM) | Ukleba Luka | 20/04/2026 |
 | S4: Database Persistence (MariaDB) | Trujillo Mingorance Alberto | 20/04/2026 |
 | S5: Cache & Session Manager (Redis) | Muñoz Llerin Joel | 20/04/2026 |
 | S6: Identity & Directory (LDAP) | Trujillo Mingorance Alberto | 20/04/2026 |
 | S7: SIEM (Wazuh) | Trujillo Mingorance Alberto | 20/04/2026 |
-| S8: Metrics & Analytics (Grafana) | Trujillo Mingorance Alberto | 20/04/2026 |
+| S8: Metrics & Analytics (Grafana) | Ukleba Luka | 20/04/2026 |
 | S9: Auditoría & Recon (Dockerfile unificat PHP) | Trujillo Mingorance Alberto | 20/04/2026 |
 | S10: Postfix (Dockerfile.s10_s11) | Ukleba Luka | 20/04/2026 |
 | S11: Snort (mateix Dockerfile que S10) | Ukleba Luka | 20/04/2026 |
