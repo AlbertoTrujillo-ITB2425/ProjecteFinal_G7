@@ -97,8 +97,8 @@ El nucli tècnic de l'Sprint 1 va ser definir i aixecar tots els serveis com a c
 | S7: SIEM (Wazuh) | Trujillo Mingorance Alberto | 20/04/2026 |
 | S8: Metrics & Analytics (Grafana) | Ukleba Luka | 20/04/2026 |
 | S9: Auditoría & Recon (Dockerfile unificat PHP) | Trujillo Mingorance Alberto | 20/04/2026 |
-| S10: Postfix (Dockerfile.s10_s11) | Ukleba Luka | 20/04/2026 |
-| S11: Snort (mateix Dockerfile que S10) | Ukleba Luka | 20/04/2026 |
+| S10: Postfix (Dockerfile.s10_s11) | Muñoz Llerin Joel | 20/04/2026 |
+| S11: Snort (mateix Dockerfile que S10) | Muñoz Llerin Joel | 20/04/2026 |
  
 **Què es va fer:**
 - Es va crear una plantilla Docker unificada que serviria de base per als nodes web i el scanner.
