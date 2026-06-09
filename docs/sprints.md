@@ -30,9 +30,9 @@ Abans de tocar res tècnic, calia tenir el lloc on treballar i les eines prepara
  
 | Tasca | Responsable | Completada |
 |-------|-------------|-----------|
-| Crear Repositori de GitHub | Trujillo Mingorance Alberto | 13/04/2026 |
-| Configurar docker-compose inicial | Trujillo Mingorance Alberto | 27/04/2026 |
-| Crear scripts de desplegament ràpid en bash | Equip complet | 20/04/2026 |
+| Crear Repositori de GitHub | Luka,Alberto,Joel | 13/04/2026 |
+| Configurar docker-compose inicial | Luka,Alberto,Joel | 27/04/2026 |
+| Crear scripts de desplegament ràpid en bash | Luka,Alberto,Joel | 20/04/2026 |
  
 **Què es va fer:**
 - Es va crear el repositori central de GitHub que serviria com a base de tot el codi i la documentació del projecte.
