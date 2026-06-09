@@ -1,7 +1,5 @@
 # Manual d'Usuari: CyberPyme
  
-**Versió:** 1.0 | **Per a:** Usuaris sense coneixements tècnics avançats
- 
 ---
  
 ## Què és CyberPyme?
