@@ -1,6 +1,4 @@
-# 🎥 Vídeo de la Demostració
-
-Fes clic en el següent enllaç per veure o descarregar la demo del pentesting:
+# 🎥 Demos
 
 [DemoPentsting](https://drive.google.com/file/d/1VMFBfY2bkEM3S1jC2ukvBHMzpYK1TQgb/view?usp=sharing)
 
